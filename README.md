@@ -5,208 +5,192 @@
     <img src="resources/build/icon.svg" width="64" />
 </p>
 
-🚀 A modern, production-ready Electron application template with React, Vite, TypeScript, HeroUI, and TailwindCSS. ElectronForge provides a solid foundation for developing beautiful cross-platform desktop applications with the latest web technologies.
+🚀 一个现代化、生产就绪的 Electron 应用程序模板，集成了 React、Vite、TypeScript、HeroUI 和 TailwindCSS。ElectronForge 为使用最新 Web 技术开发美观的跨平台桌面应用程序提供了坚实的基础。
 
 <br />
 
 <p align="center">
-    <img src="app/assets/era-preview.png" target="_blank" />
-</p>
-
-<p align="center">
-    <a href="https://imgur.com/B5pGkDk">Watch Video Preview</a>
+    <img src="app/assets/era-preview.png" target="_blank" style="width: 80%;border-radius: 8px;" />
 </p>
 
 <br />
 
-## Features
+## 特性
 
-- 🚀 Electron - Cross-platform desktop application framework
-- ⚛️ React - Component-based UI library
-- 📦 TypeScript - Type-safe JavaScript
-- 🎨 HeroUI - Beautiful and accessible component library
-- 🎨 TailwindCSS - Utility-first CSS framework
-- ⚡ Vite - Lightning-fast build tool
-- 🔥 Fast HMR - Hot Module Replacement
-- 🎨 Dark/Light Mode - Built-in theme switching
-- 🪟 Custom Window & Titlebar - Professional-looking window with custom titlebar & file menus
-- 📐 Clean Project Structure - Separation of main and renderer processes
-- 🧩 Path Aliases – Keep your code organized
-- 🛠️ Electron Builder - Configured for packaging applications
-
-<br />
-
-## Prerequisites
-
-- Node.js (v18 or higher)
-- npm, yarn, pnpm, or bun
+- 🚀 Electron - 跨平台桌面应用程序框架
+- ⚛️ React - 基于组件的 UI 库
+- 📦 TypeScript - 类型安全的 JavaScript
+- 🎨 HeroUI - 美观且易于访问的组件库
+- 🎨 TailwindCSS - 实用优先的 CSS 框架
+- ⚡ Vite - 闪电般快速的构建工具
+- 🔥 快速热重载 - 热模块替换
+- 🎨 深色/浅色模式 - 内置主题切换
+- 🪟 自定义窗口和标题栏 - 专业外观的窗口，带有自定义标题栏和文件菜单
+- 📐 清晰的项目结构 - 主进程和渲染进程分离
+- 🧩 路径别名 - 保持代码组织有序
+- 🛠️ Electron Builder - 配置好的应用程序打包
 
 <br />
 
-## Installation
+## 前置要求
 
-Clone the repository and install dependencies:
+- Node.js (v18 或更高版本)
+- bun
+
+<br />
+
+## 安装
+
+克隆仓库并安装依赖：
 
 ```bash
-# Clone the repository
+# 克隆仓库
 git clone https://github.com/yourusername/electron-forge
 cd electron-forge
 
-# Install dependencies
-npm install
-# or
-yarn
-# or
-pnpm install
-# or
+# 安装依赖
 bun install
 ```
 
 <br />
 
-## Development
+## 开发
 
-Start the development server:
+启动开发服务器：
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
 bun run dev
 ```
 
-This will start Electron with hot-reload enabled so you can see changes in real time.
+这将启动带有热重载功能的 Electron，让您可以实时查看更改。
 
 <br />
 
-## Building for Production
+## 生产构建
 
-Build the application for your platform:
+为您的平台构建应用程序：
 
 ```bash
-# For Windows
-npm run build:win
+# Windows 平台
+bun run build:win
 
-# For macOS
-npm run build:mac
+# macOS 平台
+bun run build:mac
 
-# For Linux
-npm run build:linux
+# Linux 平台
+bun run build:linux
 
-# Unpacked for all platforms
-npm run build:unpack
+# 所有平台的未打包版本
+bun run build:unpack
 ```
 
-Distribution files will be located in the `dist` directory.
+分发文件将位于 `dist` 目录中。
 
 <br />
 
-## IPC Communication
+## IPC 通信
 
-The app uses a secure IPC (Inter-Process Communication) system to communicate between the renderer and main processes:
+应用程序使用安全的 IPC（进程间通信）系统在渲染进程和主进程之间进行通信：
 
 ```ts
-// Renderer process (send message to main)
+// 渲染进程（向主进程发送消息）
 window.api.send('channel-name', ...args)
 
-// Renderer process (receive message from main)
+// 渲染进程（从主进程接收消息）
 window.api.receive('channel-name', (data) => {
   console.log(data)
 })
 
-// Renderer process (invoke a method in main and get a response)
+// 渲染进程（调用主进程中的方法并获取响应）
 const result = await window.api.invoke('channel-name', ...args)
 ```
 
 <br />
 
-## Custom Window Components
+## 自定义窗口组件
 
-This template includes a custom window implementation with:
+此模板包含自定义窗口实现，具有以下功能：
 
-- Custom titlebar with app icon
-- Window control buttons (minimize, maximize, close)
-- Menu system with keyboard shortcuts
-- Dark/light mode toggle
-- Cross-platform support for Windows and macOS
-
-<br />
-
-### Titlebar Menu Toggle
-
-The titlebar menu can be toggled using:
-
-- **Windows**: Press the `Alt` key
-- **macOS**: Press the `Option (⌥)` key
-
-When you press the toggle key:
-
-- If the menu is hidden, it becomes visible
-- If the menu is already visible, it gets hidden
-- The menu only toggles if menu items are available
+- 带有应用程序图标的自定义标题栏
+- 窗口控制按钮（最小化、最大化、关闭）
+- 带有键盘快捷键的菜单系统
+- 深色/浅色模式切换
+- Windows 和 macOS 的跨平台支持
 
 <br />
 
-### Customizing Menu Items
+### 标题栏菜单切换
 
-To add, remove or modify menu items, update the `lib/window/titlebarMenus.ts` file.
+可以使用以下方式切换标题栏菜单：
+
+- **Windows**: 按 `Alt` 键
+- **macOS**: 按 `Option (⌥)` 键
+
+当您按下切换键时：
+
+- 如果菜单隐藏，它将变为可见
+- 如果菜单已经可见，它将被隐藏
+- 只有在有菜单项可用时，菜单才会切换
 
 <br />
 
-## Tailwind Styling
+### 自定义菜单项
 
-The project supports **TailwindCSS** for styling:
+要添加、删除或修改菜单项，请更新 `lib/window/titlebarMenus.ts` 文件。
+
+<br />
+
+## Tailwind 样式
+
+项目支持使用 **TailwindCSS** 进行样式设计：
 
 ```ts
-// Example component with Tailwind classes
+// 使用 Tailwind 类的示例组件
 const Button = () => (
   <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-    Click me
+    点击我
   </button>
 );
 ```
 
 <br />
 
-## Contributing
+## 贡献
 
-Contributions are welcome! Feel free to submit a Pull Request.
+欢迎贡献！请随时提交 Pull Request。
 
 <br />
 
-## Project Structure
+## 项目结构
 
 <!-- prettier-ignore-start -->
 ```markdown
-├── app/                        # Renderer process files
-│   ├── assets/                 # Static assets (images, fonts, etc)
-│   ├── components/             # React components
-│   │   ├── App.tsx             # Application component
-│   ├── styles/                 # CSS and Tailwind files
-│   │   ├── app.css             # App stylesheet
-│   │   └── tailwind.css        # Tailwind stylesheet
-│   ├── index.html              # Entry HTML file
-│   └── renderer.tsx            # Renderer process entry
-├── lib/                        # Shared library code
-│   ├── main/                   # Main process code
-│   │   ├── index.ts            # Main entry point for Electron
-│   │   └── ...                 # Other main process modules
-│   ├── preload/                # Preload scripts for IPC
-│   │   ├── index.ts            # Preload script entry
-│   │   └── api.ts              # Exposed API for renderer
-│   ├── welcome/                # Welcome kit components
-│   └── window/                 # Custom window implementation
-├── resources/                  # Build resources
-├── .eslintrc                   # ESLint configuration
-├── .prettierrc                 # Prettier format configuration
-├── electron-builder.yml        # Electron builder configuration
-├── electron.vite.config.ts     # Vite configuration for Electron
-├── package.json                # Project dependencies and scripts
-└── tsconfig.node.json          # Main process tsconfig
-└── tsconfig.web.json           # Renderer process tsconfig
+├── app/                        # 渲染进程文件
+│   ├── assets/                 # 静态资源（图片、字体等）
+│   ├── components/             # React 组件
+│   │   ├── App.tsx             # 应用程序组件
+│   ├── styles/                 # CSS 和 Tailwind 文件
+│   │   ├── app.css             # 应用程序样式表
+│   │   └── tailwind.css        # Tailwind 样式表
+│   ├── index.html              # 入口 HTML 文件
+│   └── renderer.tsx            # 渲染进程入口
+├── lib/                        # 共享库代码
+│   ├── main/                   # 主进程代码
+│   │   ├── index.ts            # Electron 主入口点
+│   │   └── ...                 # 其他主进程模块
+│   ├── preload/                # IPC 预加载脚本
+│   │   ├── index.ts            # 预加载脚本入口
+│   │   └── api.ts              # 渲染器暴露的 API
+│   ├── welcome/                # 欢迎套件组件
+│   └── window/                 # 自定义窗口实现
+├── resources/                  # 构建资源
+├── .eslintrc                   # ESLint 配置
+├── .prettierrc                 # Prettier 格式配置
+├── electron-builder.yml        # Electron 构建器配置
+├── electron.vite.config.ts     # Electron 的 Vite 配置
+├── package.json                # 项目依赖和脚本
+└── tsconfig.node.json          # 主进程 tsconfig
+└── tsconfig.web.json           # 渲染进程 tsconfig
 
 ```
 <!-- prettier-ignore-end -->
