@@ -250,8 +250,10 @@ lerna-debug.log*
 *.tar.gz
 *.zip
 *.blockmap
-*.yml
+# Build artifacts
+*.blockmap
 !electron-builder.yml
+!.github/**/*.yml
 
 # Auto-generated files
 routeTree.gen.ts
