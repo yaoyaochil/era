@@ -209,7 +209,6 @@ dist
 # Electron
 dist/
 out/
-build/
 release/
 
 # Electron-builder

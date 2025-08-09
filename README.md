@@ -10,7 +10,7 @@
 <br />
 
 <p align="center">
-    <img src="app/assets/era-preview.png" target="_blank" style="width: 80%;border-radius: 8px;" />
+    <img src="app/assets/era-preview-new.png" target="_blank" style="width: 80%;border-radius: 8px;" />
 </p>
 
 <br />
